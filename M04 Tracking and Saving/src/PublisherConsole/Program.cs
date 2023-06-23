@@ -155,4 +155,28 @@ void DeleteAuthor(int id)
     }
 }
 
+void InsertMultipleAuthors(IList<Author> authors)
+{
+    using var context = new PubContext();
+    context.Authors.AddRange(authors);
+    context.SaveChanges();
+}
+
+void UpdateMultipleAuthors(IList<Author> authors)
+{
+    using var context = new PubContext();
+    context.Authors.UpdateRange(authors);
+    context.SaveChanges();
+}
+
+void DeleteMultipleAuthors(IList<Author> authors)
+{
+    using var context = new PubContext();
+    context.Authors.RemoveRange(authors);
+    context.SaveChanges();
+}
+
+
+
+
 
